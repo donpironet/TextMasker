@@ -93,7 +93,7 @@ To integrate TextMasker into your Xcode project using Carthage, specify it in yo
 github "donpironet/TextMasker" ~> 1.0.0
 ```
 
-Run `carthage update` to build the framework and drag the built `Alamofire.framework` into your Xcode project.
+Run `carthage update` to build the framework and drag the built `TextMasker.framework` into your Xcode project.
 
 
 ## License
