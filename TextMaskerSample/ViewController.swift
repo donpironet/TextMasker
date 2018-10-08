@@ -16,14 +16,14 @@ class ViewController: UIViewController {
     
     private let nationalSecurityNumberMask = "xx.xx.xx-xxx.xx"
     private let accountNumberMask = "6703 xxxx xxxx xxxx x"
-    private let mededeling = "+++ xxx / xxxx / xxxxx +++"
+    private let communicationMask = "+++ xxx / xxxx / xxxxx +++"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let validCharacters = CharacterSet.decimalDigits
         let replaceCharacters = CharacterSet(charactersIn: "x")
-        self.masker = TextMasker(mask: self.mededeling, validCharacters: validCharacters, replacementCharacters: replaceCharacters)
+        self.masker = TextMasker(mask: self.communicationMask, validCharacters: validCharacters, replacementCharacters: replaceCharacters)
         
         self.textField.text = self.masker.mask
         self.textField.delegate = self

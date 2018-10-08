@@ -11,7 +11,7 @@ Specify a mask for example:
 ```swift
 let nationalSecurityNumberMask = "xx.xx.xx-xxx.xx"
 let accountNumberMask = "6703 xxxx xxxx xxxx x"
-let communication = "+++ xxx / xxxx / xxxxx +++"
+let communicationMask = "+++ xxx / xxxx / xxxxx +++"
 ```
 
 Specify the valid characters that can be put in:
@@ -29,20 +29,21 @@ let replaceCharacters = CharacterSet(charactersIn: "x")
 Simply create a instance:
 
 ```swift
-self.masker = TextMasker(mask: communication, validCharacters: validCharacters, replacementCharacters: replaceCharacters)
+self.masker = TextMasker(mask: communicationMask, validCharacters: validCharacters, replacementCharacters: replaceCharacters)
 ```
 
 Set the initial state:
 
 ```swift    
-        self.textField.text = self.masker.mask
-        self.textField.delegate = self    
-        self.textField.font = UIFont(name: "couriernewpsmt", size: 14)
+self.textField.text = self.masker.mask
+self.textField.delegate = self    
+self.textField.font = UIFont(name: "couriernewpsmt", size: 14)
 ```
         
 Implement UITextFieldDelegate:
 
 ```swift
+extension ViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let currentPositionInMask = self.masker.cursorPosition
         textField.setCursor(to: currentPositionInMask)
@@ -57,6 +58,7 @@ Implement UITextFieldDelegate:
         
         return false
     }
+}
 ```
     
 Profit!
